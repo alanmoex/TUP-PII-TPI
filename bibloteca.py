@@ -15,14 +15,17 @@ def ejemplares_prestados():
 def registrar_nuevo_libro():
     nuevo_libro = l.nuevo_libro()
     #completar
+    libros.append(nuevo_libro) 
+    print(libros)
     return None
 
 def eliminar_ejemplar_libro():
     #completar
     return None
 
-def prestar_ejemplar_libro():
-    #completar
+def prestar_ejemplar_libro(indice):
+    libros[indice]["cant_ej_ad"] -= 1
+    libros[indice]["cant_ej_pr"] += 1
     return None
 
 def devolver_ejemplar_libro():
