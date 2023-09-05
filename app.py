@@ -20,20 +20,27 @@ def menu():
     print("6 - Salir")
 
 def gestionarPrestamo():
-    encontrado = False
     cod = input("Ingrese el codigo del libro: \n")
+    ind = validarCodigo(cod)
+    if ind >= 0:
+        libro = bibloteca.libros[ind]
+        print(f"Autor: {libro['autor']}. Titulo: {libro['titulo']}. Ejemplares disponibles: {libro['cant_ej_ad']}")
+        if libro["cant_ej_ad"] > 0:
+            bibloteca.prestar_ejemplar_libro(ind)
+        else:
+            print("No quedan ejemplares para prestar.\n")
+
+def validarCodigo(cod):
+    encontrado = False
     for dicc in bibloteca.libros:
         if dicc["cod"] == cod:
             encontrado = True
             indice = bibloteca.libros.index(dicc)
-            print(f"Autor: {dicc['autor']}. Titulo: {dicc['titulo']}. Ejemplares disponibles: {dicc['cant_ej_ad']}")
-            if dicc["cant_ej_ad"] > 0:
-                bibloteca.prestar_ejemplar_libro(indice)
-            else:
-                print("No quedan ejemplares para prestar.\n")
-
+            return indice
     if not encontrado:
-        print("Libro no encontrado")
+        print("El codigo ingresado es incorrecto")
+        return -1
+
 
 while respuesta != "salir":
     menu()
