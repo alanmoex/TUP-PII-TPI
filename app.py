@@ -19,29 +19,18 @@ def menu():
     print("5 - Mostrar ejemplares perstados")
     print("6 - Salir")
 
-def gestionarPrestamo():
-    ind = validarCodigo()
-    if ind >= 0:
-        libro = bibloteca.libros[ind]
-        print(f"Autor: {libro['autor']}. Titulo: {libro['titulo']}. Ejemplares disponibles: {libro['cant_ej_ad']}")
-        if libro["cant_ej_ad"] > 0:
-            bibloteca.prestar_ejemplar_libro(ind)
-            print("El prestamo ha sido gestionado satisfactoriamente. \n")
-        else:
-            print("No quedan ejemplares para prestar.\n")
 
 def validarCodigo():
     cod = input("Ingrese el codigo del libro: \n")
     encontrado = False
-    for dicc in bibloteca.libros:
-        if dicc["cod"] == cod:
+    for libro in bibloteca.libros:
+        if libro["cod"] == cod:
             encontrado = True
-            indice = bibloteca.libros.index(dicc)
+            indice = bibloteca.libros.index(libro)
             return indice
     if not encontrado:
         print("El codigo ingresado es incorrecto")
         return -1
-
 
 
 while respuesta != "salir":
@@ -50,15 +39,15 @@ while respuesta != "salir":
     os.system ("cls") #Limpiar pantalla
     if opt.isnumeric():
         if int(opt) == 1:
-            gestionarPrestamo()
-            print()
+            ind = validarCodigo()
+            if ind >= 0:
+                bibloteca.prestar_ejemplar_libro(ind)
         elif int(opt) == 2:
             #completar
             print()
         elif int(opt) == 3:
             #completar
             bibloteca.registrar_nuevo_libro()
-            
             print()
         elif int(opt) == 4:
             #completar
