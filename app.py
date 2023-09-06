@@ -43,10 +43,10 @@ while respuesta != "salir":
             if ind >= 0:
                 bibloteca.prestar_ejemplar_libro(ind)
         elif int(opt) == 2:
-            #completar
-            print()
+            ind = validarCodigo()
+            if ind >= 0:
+                bibloteca.devolver_ejemplar_libro(ind)
         elif int(opt) == 3:
-            #completar
             bibloteca.registrar_nuevo_libro()
             print()
         elif int(opt) == 4:

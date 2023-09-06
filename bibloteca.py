@@ -16,7 +16,8 @@ def registrar_nuevo_libro():
     nuevo_libro = l.nuevo_libro()
     #completar
     libros.append(nuevo_libro) 
-    print(libros)
+    print("Se ha registrado un nuevo libro satisfactoriamente. Sus datos son:\n")
+    print(f"Codigo: {nuevo_libro['cod']} --- Titulo: {nuevo_libro['titulo']} --- Autor: {nuevo_libro['autor']} --- Ejemplares adquiridos: {nuevo_libro['cant_ej_ad']}" )
     return None
 
 def eliminar_ejemplar_libro():
@@ -32,11 +33,16 @@ def prestar_ejemplar_libro(indice):
         print("El prestamo ha sido gestionado satisfactoriamente. \n")
     else:
         print("No quedan ejemplares para prestar.\n")
-    
     return None
 
-def devolver_ejemplar_libro():
-    #completar
+def devolver_ejemplar_libro(indice):
+    libro = libros[indice]
+    if libro["cant_ej_pr"] > 0:
+        libros[indice]["cant_ej_ad"] += 1
+        libros[indice]["cant_ej_pr"] -= 1
+        print("La devolucion ha sido gestionado satisfactoriamente. \n")
+    else:
+        print("No hay ejemplares prestados de ese libro.\n")
     return None
 
 def nuevo_libro():
