@@ -8,9 +8,6 @@ libros.append(l.libro1)
 libros.append(l.libro2)
 libros.append(l.libro3)
 
-def ejemplares_prestados():
-    # completar
-    return None
 
 def registrar_nuevo_libro():
     nuevo_libro = l.nuevo_libro()
@@ -20,9 +17,13 @@ def registrar_nuevo_libro():
     print(f"Codigo: {nuevo_libro['cod']} --- Titulo: {nuevo_libro['titulo']} --- Autor: {nuevo_libro['autor']} --- Ejemplares adquiridos: {nuevo_libro['cant_ej_ad']}" )
     return None
 
-def eliminar_ejemplar_libro():
-    #completar
-    return None
+def eliminar_ejemplar_libro(libro):
+    cantidad_eliminar = int(input("Ingrese la cantidad de ejemplares a eliminar: "))
+    if cantidad_eliminar <= libro['cant_ej_ad']:
+        libro['cant_ej_ad'] -= cantidad_eliminar
+        print("Ejemplar(es) eliminado(s) con éxito.")
+    else:
+        print("Error: La cantidad a eliminar es mayor que la cantidad adquirida.")
 
 def prestar_ejemplar_libro(indice):
     libro = libros[indice]
@@ -45,6 +46,10 @@ def devolver_ejemplar_libro(indice):
         print("No hay ejemplares prestados de ese libro.\n")
     return None
 
-def nuevo_libro():
-    #completar
-    return None
+def ejemplares_prestados(libros):
+    for libro in libros:
+        if libro['cant_ej_pr'] > 0:
+            print(f"Título: {libro['titulo']}")
+            print(f"Cantidad de ejemplares prestados: {libro['cant_ej_pr']}")
+    else:
+        print("No hay ejemplares prestados en este momento.")
