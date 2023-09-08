@@ -8,7 +8,6 @@ def nuevo_libro():
     titulo = input("Ingrese el título del libro: ")
     autor = input("Ingrese el autor del libro: ")
     cant_ej_ad = int(input("Ingrese la cantidad de ejemplares disponibles: "))
-    cant_ej_pr = int(input("Ingrese la cantidad de ejemplares prestados: "))
 
     nuevo_libro = {
         'cod': generar_codigo(),
