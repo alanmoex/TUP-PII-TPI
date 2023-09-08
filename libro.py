@@ -13,7 +13,7 @@ def nuevo_libro():
     nuevo_libro = {
         'cod': generar_codigo(),
         'cant_ej_ad': cant_ej_ad,
-        'cant_ej_pr': cant_ej_pr,
+        'cant_ej_pr': 0,
         'titulo': titulo,
         'autor': autor
     }
