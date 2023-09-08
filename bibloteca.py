@@ -11,7 +11,6 @@ libros.append(l.libro3)
 
 def registrar_nuevo_libro():
     nuevo_libro = l.nuevo_libro()
-    #completar
     libros.append(nuevo_libro) 
     print("Se ha registrado un nuevo libro satisfactoriamente. Sus datos son:\n")
     print(f"Codigo: {nuevo_libro['cod']} --- Titulo: {nuevo_libro['titulo']} --- Autor: {nuevo_libro['autor']} --- Ejemplares adquiridos: {nuevo_libro['cant_ej_ad']}" )
@@ -57,6 +56,4 @@ def ejemplares_prestados():
     if not prestados:
         print("No hay ejemplares prestados en este momento.")
 
-        #prueba commit
-        #prueba 2
-        
+       

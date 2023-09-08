@@ -3,8 +3,6 @@
 
 import os
 import bibloteca
-import cod_generator
-import libro
 
 
 print("Bienvenido!")
